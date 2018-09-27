@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace T2
 {
@@ -11,7 +12,7 @@ namespace T2
         private int ika;
         public String nimi;
 
-        public Kissa() { }
+        public Kissa() { this.nimi = "Kisuli"; }
 
         public Kissa(int ika, String nimi)
         {
@@ -19,9 +20,27 @@ namespace T2
             this.nimi = nimi;
         }
 
-        public void asetaKissanNimi(String nimi)
+        public bool asetaKissanNimi(String nimi)
         {
-            this.nimi = nimi;
+            if (nimi != "Hilda")
+            {
+                this.nimi = nimi;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+            
+        }
+
+        public void asetaKissanIka(int ika)
+        {
+            if (ika >= 0)
+            {
+                this.ika = ika;
+            }
         }
 
         public String PalautaKissanNimi()
@@ -31,7 +50,7 @@ namespace T2
 
         public int PalautaKissanika()
         {
-            return ika;
+            return ika; 
         }
     }
 }
