@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace T7
 {
-    class Kissa : Nisakkaat
+    class Papukaija : Linnut
     {
-        public void kissa() { }
+        public void papukaija() { }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace T7
 {
-    class Koira : Elain
+    class Koira : Nisakkaat
     {
         public void koira() { }
     }
