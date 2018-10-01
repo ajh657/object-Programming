@@ -1,0 +1,12 @@
+﻿Tehtävä 11
+
+DatabaseController-luokassa on valmista koodia, jolla saa yhteyden Sql-tietokantaan.
+
+
+
+Seuraa ohjeita OneNotesta, kohdasta: yhteyden luonti MS SQL palvelimeen
+
+
+Kun olet saanut liittämisen tehtyä, häviää punaiset virheilmoitukset SQL-kohdista.
+
+Korjaa koodia niin että se kääntyy ilman virheitä. Koodissa on tahallaan puutteellisia ja virheellisiä kohtia!

@@ -1,20 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Auto.view;
 
-namespace T12
+namespace Auto
 {
-    public partial class Data : Form
+    class Program
     {
-        public Data()
+
+
+        static void Main()
         {
-            InitializeComponent();
+            view.Menu uusi = new view.Menu();
+            uusi.ShowDialog();
+
         }
     }
 }
