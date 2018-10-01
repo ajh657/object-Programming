@@ -40,5 +40,37 @@ namespace T12
         {
             if (MyConnection != null) MyConnection.Close();
         }
+
+        public Array GetData(int type)
+        {
+            switch (type)
+            {
+                default:
+                    return null;
+            }
+        }
+
+        private Array SQLQuery(String Query)
+        {
+
+            try
+            {
+
+                SqlDataReader dataReader = null;
+                SqlCommand command = new SqlCommand(Query, MyConnection);
+
+                dataReader = command.ExecuteReader();
+
+                dataReader.GetValues();
+            }
+            catch (Exception e)
+            {
+
+                throw;
+            }
+
+            
+
+        }
     }
 }
