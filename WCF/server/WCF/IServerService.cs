@@ -145,8 +145,7 @@ namespace WCF
         [DataMember]
         public int autonmerkkiId { get => AutonMerkkiID; set => AutonMerkkiID = value; }
         [DataMember]
-        public string autonmerkki {
-            get
+        public string autonmerkki { get
             {
                 string AMData;
                 if (Type == 0)
@@ -165,7 +164,23 @@ namespace WCF
         [DataMember]
         public int automalliId { get => AutoMalliID; set => AutoMalliID = value; }
         [DataMember]
-        public string autonmalli { get => AutonMalli; set => AutonMalli = value; }
+        public string autonmalli {
+            get
+            {
+                string AUMData;
+                if (Type == 0)
+                {
+                    SQL sql = new SQL();
+
+                    AUMData = sql.SelectAUMData(ID);
+
+                    return AUMData;
+                }
+                else
+                {
+                    return AutonMalli;
+                }
+            } set => AutonMalli = value; }
         [DataMember]
         public int varitId { get => VaritID; set => VaritID = value; }
         [DataMember]
@@ -190,6 +205,23 @@ namespace WCF
         [DataMember]
         public int polttoaineId { get => PolttoaineID; set => PolttoaineID = value; }
         [DataMember]
-        public string polttoaine { get => Polttoaine; set => Polttoaine = value; }
+        public string polttoaine {
+            get
+            {
+                string PData;
+                if (Type == 0)
+                {
+                    SQL sql = new SQL();
+
+                    PData = sql.SelectPData(ID);
+
+                    return PData;
+                }
+                else
+                {
+                    return Polttoaine;
+                }
+            }
+            set => Polttoaine = value; }
     }
 }
