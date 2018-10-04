@@ -19,6 +19,9 @@ namespace WCF
         [OperationContract]
         CompositeType GetDataUsingDataContract(CompositeType composite);
 
+        [OperationContract]
+        Car GetCar(Car car);
+
         // TODO: Add your service operations here
     }
 
@@ -59,7 +62,7 @@ namespace WCF
         private string AutonMerkki;
 
         private int AutoMalliID;
-        private string Autonmalli;
+        private string AutonMalli;
 
         private int VaritID;
         private string Vari;
@@ -72,16 +75,121 @@ namespace WCF
         [DataMember]
         public int id { get => ID; set => ID = value; }
         [DataMember]
-        public decimal hinta { get => Hinta; set => Hinta = value; }
+        public decimal hinta { get {
+                decimal hintaData = 0;
+
+                if (Type == 0)
+                {
+                    SQL sql = new SQL();
+                    hintaData = sql.SelectHintaData(ID);
+
+                    return hintaData;
+                }
+                else
+                {
+                    return Hinta;
+                }
+            } set => Hinta = value; }
         [DataMember]
-        public string date { get => Date; set => Date = value; }
+        public string date { get {
+                string dateData;
+                if (Type == 0)
+                {
+                    SQL sql = new SQL();
+
+                    dateData = sql.SelectDateData(ID);
+
+                    return dateData;
+                }
+                else
+                {
+                    return Date;
+                }
+            } set => Date = value; }
         [DataMember]
-        public decimal moottorin_tilavuus { get => Moottorin_tilavuus; set => Moottorin_tilavuus = value; }
+        public decimal moottorin_tilavuus { get
+            {
+                decimal MTData = 0;
+
+                if (Type == 0)
+                {
+                    SQL sql = new SQL();
+                    MTData = sql.SelectMTData(ID);
+
+                    return MTData;
+                }
+                else
+                {
+                    return Moottorin_tilavuus;
+                }
+            } set => Moottorin_tilavuus = value; }
         [DataMember]
-        public int mittarilukema { get => MittariLukema; set => MittariLukema = value; }
+        public int mittarilukema
+        {
+            get
+            {
+                int ML = 0;
+
+                if (Type == 0)
+                {
+                    SQL sql = new SQL();
+                    ML = sql.SelectMLData(ID);
+
+                    return ML;
+                }
+                else
+                {
+                    return ML;
+                }
+            } set => MittariLukema = value; }
         [DataMember]
-        public int AutonMerkkiID1 { get => AutonMerkkiID; set => AutonMerkkiID = value; }
+        public int autonmerkkiId { get => AutonMerkkiID; set => AutonMerkkiID = value; }
         [DataMember]
-        public string autonmerkki { get => AutonMerkki; set => AutonMerkki = value; }
+        public string autonmerkki {
+            get
+            {
+                string AMData;
+                if (Type == 0)
+                {
+                    SQL sql = new SQL();
+
+                    AMData = sql.SelectAMData(ID);
+
+                    return AMData;
+                }
+                else
+                {
+                    return AutonMerkki;
+                }
+            } set => AutonMerkki = value; }
+        [DataMember]
+        public int automalliId { get => AutoMalliID; set => AutoMalliID = value; }
+        [DataMember]
+        public string autonmalli { get => AutonMalli; set => AutonMalli = value; }
+        [DataMember]
+        public int varitId { get => VaritID; set => VaritID = value; }
+        [DataMember]
+        public string vari {
+            get
+            {
+                string VData;
+                if (Type == 0)
+                {
+                    SQL sql = new SQL();
+
+                    VData = sql.SelectVData(ID);
+
+                    return VData;
+                }
+                else
+                {
+                    return Vari;
+                }
+            }
+            set => Vari = value; }
+        [DataMember]
+        public int polttoaineId { get => PolttoaineID; set => PolttoaineID = value; }
+        [DataMember]
+        public string polttoaine { get => Polttoaine; set => Polttoaine = value; }
     }
 }

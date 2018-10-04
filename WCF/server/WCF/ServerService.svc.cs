@@ -29,5 +29,10 @@ namespace WCF
             }
             return composite;
         }
+
+        public Car GetCar(Car car)
+        {
+            return car;
+        }
     }
 }
