@@ -21,6 +21,17 @@ namespace WCF
             MyConnection.Open();
         }
 
+        public bool IDCheck(int id)
+        {
+            OpenConnection();
+            SqlCommand cmd = new SqlCommand("SELECT ID FROM auto where ID = " + id + ";", MyConnection);
+            SqlDataReader reader;
+
+            reader = cmd.ExecuteReader();
+
+            return reader.HasRows;
+        }
+
         public decimal SelectHintaData(int id)
         {
             OpenConnection();
@@ -229,5 +240,10 @@ namespace WCF
                 return null;
             }
         }
+
+        public void InsertData()
+        {
+            
+        } 
     }
 }

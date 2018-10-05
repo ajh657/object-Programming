@@ -32,6 +32,11 @@ namespace WCF
 
         public Car GetCar(Car car)
         {
+            SQL sql = new SQL();
+            if (!sql.IDCheck(car.id))
+            {
+                return null;
+            }
             return car;
         }
     }

@@ -71,7 +71,14 @@ namespace WCF
         private string Polttoaine;
 
         [DataMember]
-        public int type { get { return Type; } set { Type = value; } }
+        public int type { get {
+                if (Type == 1)
+                {
+
+                }
+                return Type;
+
+            } set { Type = value; } }
         [DataMember]
         public int id { get => ID; set => ID = value; }
         [DataMember]
